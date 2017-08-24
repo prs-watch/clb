@@ -5,6 +5,8 @@ import requests
 import re
 from bs4 import BeautifulSoup
 
+__author__ = 'prs-watch'
+
 class Scraper(object):
 	DELIMITER		=	'/'
 	BASE_URL		=	'http://gd2.mlb.com/components/game/mlb'

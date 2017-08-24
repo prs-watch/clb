@@ -7,7 +7,6 @@ from scraper.game_scraper import GameScraper
 
 __author__ = 'prs_watch'
 
-
 def main():
 	"""
 	main method

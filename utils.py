@@ -3,6 +3,8 @@
 import requests
 from bs4 import BeautifulSoup
 
+__author__ = 'prs-watch'
+
 class Utils(object):
 	@classmethod
 	def get_content(self,url,parser):
