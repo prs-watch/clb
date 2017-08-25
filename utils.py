@@ -20,7 +20,7 @@ class Utils(object):
 			return BeautifulSoup(res.text,parser)
 		else:
 			print('Sorry! This score will come soon...')
-			return 'clb end'
+			return 'end'
 
 	@classmethod
 	def find_tag(self,content,tag):
