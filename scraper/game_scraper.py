@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import re
 import texttable as ttb
 from scraper.scraper import Scraper
 from utils import Utils
@@ -13,13 +12,7 @@ class GScraper(Scraper):
 		"""
 		scrape game info
 		"""
-		base_url = self.DELIMITER.join([
-				self.BASE_URL
-			,	self.YMD_FORMAT.format(**self.params)
-			,	'epg.xml'
-			])
-		html = Utils.get_content(base_url,self.PARSER)
-		games = Utils.find_all_tags(html,'game')
+		games = self._get_games()
 
 		table = ttb.Texttable()
 		table.set_deco(ttb.Texttable.HEADER)
@@ -37,8 +30,6 @@ class GScraper(Scraper):
 		no = 0
 
 		for game in games:
-
-			no += 1
 
 			content = []
 
@@ -63,6 +54,8 @@ class GScraper(Scraper):
 			content.append(result)
 
 			table_contents.append(content)
+
+			no += 1
 
 		table.add_rows(table_contents)
 		print (table.draw())

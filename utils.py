@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 __author__ = 'prs-watch'
 
 class Utils(object):
+
 	@classmethod
 	def get_content(self,url,parser):
 		"""
@@ -13,9 +14,37 @@ class Utils(object):
 		:param url: url
 		:param parser:parser
 		"""
-		res	=	requests.get(url)
+		res = requests.get(url)
 
 		if res.status_code == requests.codes.ok:
 			return BeautifulSoup(res.text,parser)
 		else:
-			res.raise_for_status()
+			print('Sorry! This score will come soon...')
+			return 'clb end'
+
+	@classmethod
+	def find_tag(self,content,tag):
+		"""
+		find first tag
+		:param content: http content
+		:param tag: tag
+		"""
+		return content.find(tag)
+
+	@classmethod
+	def find_all_tags(self,content,tag):
+		"""
+		find all tags
+		:param content: http content
+		:param tag: tag
+		"""
+		return content.find_all(tag)
+
+	@classmethod
+	def find_attr(self,content,attr):
+		"""
+		find attributes
+		:param content: http content
+		:param attr: attribute
+		"""
+		return content.get(attr)
