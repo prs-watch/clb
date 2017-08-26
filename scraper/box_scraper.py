@@ -109,6 +109,12 @@ class BScraper(Scraper):
 			for batter in batters:
 				player = []
 				bo_id = Utils.find_attr(batter,'bo')
+				
+				if bo_id != 'None':
+					pass
+				else:
+					bo_id = '--'
+
 				bo = bo_id[0:1] + '-' + bo_id[1:3]
 
 				player.append(bo)

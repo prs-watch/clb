@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+import sys
 import requests
 from bs4 import BeautifulSoup
 
@@ -19,8 +21,8 @@ class Utils(object):
 		if res.status_code == requests.codes.ok:
 			return BeautifulSoup(res.text,parser)
 		else:
-			print('Sorry! This score will come soon...')
-			return 'end'
+			print('Sorry! No Such Page...')
+			sys.exit()
 
 	@classmethod
 	def find_tag(self,content,tag):
@@ -39,7 +41,7 @@ class Utils(object):
 		:param tag: tag
 		"""
 		return content.find_all(tag)
-
+		
 	@classmethod
 	def find_attr(self,content,attr):
 		"""
@@ -47,4 +49,7 @@ class Utils(object):
 		:param content: http content
 		:param attr: attribute
 		"""
-		return content.get(attr)
+		if content.get(attr):
+			return content.get(attr)
+		else:
+			return 'None'
