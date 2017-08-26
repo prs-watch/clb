@@ -29,7 +29,7 @@ def main():
 def process(args):
 	"""
 	execute scraping
-	:param args: params from commandline
+	:param args: given params
 	"""
 	if args.box != 'no_box':
 		BScraper(args.day,args.box).scrape()

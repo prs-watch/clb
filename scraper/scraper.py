@@ -11,7 +11,7 @@ class Scraper(object):
 	YMD_FORMAT = 'year_{year}/month_{month}/day_{day}'
 	PARSER = 'lxml'
 
-	def __init__(self, timestamp, box):
+	def __init__(self,timestamp,box):
 		"""
 		init
 		:param timestamp: day
@@ -26,6 +26,9 @@ class Scraper(object):
 		self.box = box
 
 	def _get_games(self):
+		"""
+		get all games from base url
+		"""
 		base_url = self.DELIMITER.join([
 				self.BASE_URL
 			,	self.YMD_FORMAT.format(**self.params)

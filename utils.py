@@ -3,6 +3,7 @@
 
 import sys
 import requests
+import texttable as ttb
 from bs4 import BeautifulSoup
 
 __author__ = 'prs-watch'
@@ -21,7 +22,7 @@ class Utils(object):
 		if res.status_code == requests.codes.ok:
 			return BeautifulSoup(res.text,parser)
 		else:
-			print('Sorry! No Such Page...')
+			print('error: 404 not found.')
 			sys.exit()
 
 	@classmethod
@@ -52,4 +53,20 @@ class Utils(object):
 		if content.get(attr):
 			return content.get(attr)
 		else:
-			return 'None'
+			return 'none'
+
+	@classmethod
+	def draw_table(self,contents,aligns,is_deco):
+		"""
+		draw table
+		:param contents: table contents
+		:param aligns: aligns
+		:param is_deco: deco flag 
+		"""
+		table = ttb.Texttable()
+		
+		if is_deco:
+			table.set_deco(ttb.Texttable.HEADER)
+		table.set_cols_align(aligns)
+		table.add_rows(contents)
+		print(table.draw())

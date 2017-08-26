@@ -51,13 +51,13 @@ class BScraper(Scraper):
 		header = []
 		away = []
 		home = []
-		align = []
+		aligns = []
 		header.append('TEAM')
 		away.append(away_team_name)
 		home.append(home_team_name)
 
 		for inning in innings:
-			align.append('c')
+			aligns.append('c')
 			header.append(Utils.find_attr(inning,'inning'))
 			away.append(Utils.find_attr(inning,'away'))
 			home.append(Utils.find_attr(inning,'home'))
@@ -65,17 +65,13 @@ class BScraper(Scraper):
 		header.extend(['R','H','E'])
 		away.extend([away_total_runs,away_total_hits,away_total_errs])
 		home.extend([home_total_runs,home_total_hits,home_total_errs])
-		align.extend(['c','c','c','c'])
+		aligns.extend(['c','c','c','c'])
 
 		table_contents.append(header)
 		table_contents.append(away)
 		table_contents.append(home)
 
-		table = ttb.Texttable()
-		table.set_cols_align(align)
-		table.add_rows(table_contents)
-
-		print (table.draw())
+		Utils.draw_table(table_contents,aligns,True)
 
 	def _scrape_boxscore(self,boxscore,away_team_name,home_team_name):
 		"""
@@ -84,8 +80,8 @@ class BScraper(Scraper):
 		:param away_team_name: away team name
 		:param home_team_name: home team name
 		"""
-		batting_align = ['c','c','c','c','c','c','c','c','c','c','c']
-		pitching_align = ['c','c','c','c','c','c','c','c','c']
+		batting_aligns = ['c','c','c','c','c','c','c','c','c','c','c']
+		pitching_aligns = ['c','c','c','c','c','c','c','c','c']
 
 		batting_header = ['BATTING','NAME','POS','AB','R','H','RBI','BB','SO','LOB','AVG']
 		pitching_header = ['PITCHING','IP','H','R','ER','BB','SO','HR','ERA']
@@ -110,10 +106,10 @@ class BScraper(Scraper):
 				player = []
 				bo_id = Utils.find_attr(batter,'bo')
 				
-				if bo_id != 'None':
+				if bo_id != 'none':
 					pass
 				else:
-					bo_id = '--'
+					bo_id = '---'
 
 				bo = bo_id[0:1] + '-' + bo_id[1:3]
 
@@ -162,26 +158,10 @@ class BScraper(Scraper):
 
 			pit_count += 1
 
-		away_batting_table = ttb.Texttable()
-		away_batting_table.set_cols_align(batting_align)
-		away_batting_table.add_rows(away_batting)
-
-		home_batting_table = ttb.Texttable()
-		home_batting_table.set_cols_align(batting_align)
-		home_batting_table.add_rows(home_batting)
-
-		away_pitching_table = ttb.Texttable()
-		away_pitching_table.set_cols_align(pitching_align)
-		away_pitching_table.add_rows(away_pitching)
-
-		home_pitching_table = ttb.Texttable()
-		home_pitching_table.set_cols_align(pitching_align)
-		home_pitching_table.add_rows(home_pitching)
-
 		print('\t'.join(['***',away_team_name,'***']))
-		print(away_batting_table.draw())
-		print(away_pitching_table.draw())
+		Utils.draw_table(away_batting,batting_aligns,False)
+		Utils.draw_table(away_pitching,pitching_aligns,False)
 		print('')
 		print('\t'.join(['***',home_team_name,'***']))
-		print(home_batting_table.draw())
-		print(home_pitching_table.draw())
+		Utils.draw_table(home_batting,batting_aligns,False)
+		Utils.draw_table(home_pitching,pitching_aligns,False)
