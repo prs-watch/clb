@@ -554,17 +554,17 @@ $ clb -d ${date you want to check}
 $ clb -d ${date you want to check} -b ${game_no}
 ```
 
-### Check play-by-play on specific game
+#### Check play-by-play on specific game
 ```bash
 $ clb -d ${date you want to check} -p ${game_no}
 ```
 
-### Check scoring-play on specific game
+#### Check scoring-play on specific game
 ```bash
 $ clb -d ${date you want to check} -p ${game_no} -s
 ```
 
-### Check roster on specific game
+#### Check roster on specific game
 ```bash
 $ clb -d ${date you want to check} -r ${game_no}
 ```
