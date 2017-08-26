@@ -1,21 +1,24 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from utils import Utils
+from clb.utils import Utils
 
 __author__ = 'prs-watch'
 
+# base scraper class
 class Scraper(object):
 	DELIMITER = '/'
 	BASE_URL = 'http://gd2.mlb.com/components/game/mlb'
 	YMD_FORMAT = 'year_{year}/month_{month}/day_{day}'
 	PARSER = 'lxml'
 
-	def __init__(self, timestamp, box):
+	def __init__(self,timestamp,box,play,score,roster):
 		"""
 		init
 		:param timestamp: day
-		:param box: game no to check boxscore
+		:param box: boxscore flag
+		:param score: score play flag
+		:param roster: roster flag
 		"""
 		self.params = {
 			'year'	:	timestamp[0:4]
@@ -24,8 +27,14 @@ class Scraper(object):
 		}
 
 		self.box = box
+		self.play = play
+		self.score = score
+		self.roster = roster
 
 	def _get_games(self):
+		"""
+		get all games from base url
+		"""
 		base_url = self.DELIMITER.join([
 				self.BASE_URL
 			,	self.YMD_FORMAT.format(**self.params)

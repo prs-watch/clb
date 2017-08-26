@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+import sys
 import requests
+import texttable as ttb
 from bs4 import BeautifulSoup
 
 __author__ = 'prs-watch'
@@ -19,8 +22,8 @@ class Utils(object):
 		if res.status_code == requests.codes.ok:
 			return BeautifulSoup(res.text,parser)
 		else:
-			print('Sorry! This score will come soon...')
-			return 'clb end'
+			print('error: 404 not found.')
+			sys.exit()
 
 	@classmethod
 	def find_tag(self,content,tag):
@@ -39,7 +42,7 @@ class Utils(object):
 		:param tag: tag
 		"""
 		return content.find_all(tag)
-
+		
 	@classmethod
 	def find_attr(self,content,attr):
 		"""
@@ -47,4 +50,23 @@ class Utils(object):
 		:param content: http content
 		:param attr: attribute
 		"""
-		return content.get(attr)
+		if content.get(attr):
+			return content.get(attr)
+		else:
+			return 'none'
+
+	@classmethod
+	def draw_table(self,contents,aligns,is_deco):
+		"""
+		draw table
+		:param contents: table contents
+		:param aligns: aligns
+		:param is_deco: deco flag 
+		"""
+		table = ttb.Texttable()
+		
+		if is_deco:
+			table.set_deco(ttb.Texttable.HEADER)
+		table.set_cols_align(aligns)
+		table.add_rows(contents)
+		print(table.draw())

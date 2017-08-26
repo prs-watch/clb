@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import texttable as ttb
-from scraper.scraper import Scraper
-from utils import Utils
+from clb.scraper.scraper import Scraper
+from clb.utils import Utils
 
 __author__ = 'prs-watch'
 
+# scraper class for game list
 class GScraper(Scraper):
 	def scrape(self):
 		"""
@@ -14,16 +14,14 @@ class GScraper(Scraper):
 		"""
 		games = self._get_games()
 
-		table = ttb.Texttable()
-		table.set_deco(ttb.Texttable.HEADER)
-		table.set_cols_align(['c','c','c','c','c'])
-
 		table_contents = []
+		aligns = ['c','c','c','c','c']
+
 		table_contents.append([
 				'NO'
 			,	'VENUE'
-			,	'HOME_TEAM'
 			,	'AWAY_TEAM'
+			,	'HOME_TEAM'
 			,	'RESULT'
 			])
 
@@ -43,6 +41,12 @@ class GScraper(Scraper):
 			away_team_runs = Utils.find_attr(game,'away_team_runs')
 			home_team_runs = Utils.find_attr(game,'home_team_runs')
 
+			if away_team_runs == 'none':
+				away_team_runs = '*'
+
+			if home_team_runs == 'none':
+				home_team_runs = '*'
+
 			away = away_team_name + '(' + away_win + '-' + away_loss + ')'
 			home = home_team_name + '(' + home_win + '-' + home_loss + ')'
 			result = away_team_runs + '-' + home_team_runs
@@ -57,5 +61,4 @@ class GScraper(Scraper):
 
 			no += 1
 
-		table.add_rows(table_contents)
-		print (table.draw())
+		Utils.draw_table(table_contents,aligns,True)
