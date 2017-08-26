@@ -4,3 +4,9 @@ scraper/__pycache__/game_scraper.cpython-35.pyc
 scraper/__pycache__/scraper.cpython-35.pyc
 scraper/__pycache__/box_scraper.cpython-35.pyc
 *.pyc
+clb.egg-info/dependency_links.txt
+clb.egg-info/entry_points.txt
+clb.egg-info/PKG-INFO
+clb.egg-info/requires.txt
+clb.egg-info/SOURCES.txt
+clb.egg-info/top_level.txt

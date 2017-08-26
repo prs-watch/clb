@@ -3,8 +3,8 @@
 
 import sys
 import texttable as ttb
-from scraper.scraper import Scraper
-from utils import Utils
+from clb.scraper.scraper import Scraper
+from clb.utils import Utils
 
 __author__ = 'prs-watch'
 

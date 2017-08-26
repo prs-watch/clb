@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from utils import Utils
+from clb.utils import Utils
 
 __author__ = 'prs-watch'
 

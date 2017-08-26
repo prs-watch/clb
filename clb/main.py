@@ -3,10 +3,10 @@
 
 import argparse
 from datetime import datetime
-from scraper.game_scraper import GScraper
-from scraper.box_scraper import BScraper
-from scraper.play_scraper import PScraper
-from scraper.roster_scraper import RScraper
+from clb.scraper.game_scraper import GScraper
+from clb.scraper.box_scraper import BScraper
+from clb.scraper.play_scraper import PScraper
+from clb.scraper.roster_scraper import RScraper
 
 __author__ = 'prs_watch'
 

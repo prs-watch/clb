@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from scraper.scraper import Scraper
-from utils import Utils
+from clb.scraper.scraper import Scraper
+from clb.utils import Utils
 
 # scraper class
 class PScraper(Scraper):
