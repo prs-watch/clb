@@ -8,6 +8,7 @@ from utils import Utils
 
 __author__ = 'prs-watch'
 
+# scraper class for boxscore
 class BScraper(Scraper):
 	def scrape(self):
 		games = self._get_games()
@@ -17,9 +18,6 @@ class BScraper(Scraper):
 		boxscore_url = 'http://gd2.mlb.com' + boxscore_path + '/' + 'boxscore.xml'
 
 		html = Utils.get_content(boxscore_url,self.PARSER)
-
-		if html == 'end':
-			sys.exit()
 
 		boxscore = Utils.find_tag(html,'boxscore')
 

@@ -6,6 +6,7 @@ from utils import Utils
 
 __author__ = 'prs-watch'
 
+# scraper class for game list
 class GScraper(Scraper):
 	def scrape(self):
 		"""
@@ -19,8 +20,8 @@ class GScraper(Scraper):
 		table_contents.append([
 				'NO'
 			,	'VENUE'
-			,	'HOME_TEAM'
 			,	'AWAY_TEAM'
+			,	'HOME_TEAM'
 			,	'RESULT'
 			])
 
