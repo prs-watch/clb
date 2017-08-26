@@ -10,14 +10,13 @@ class PScraper(Scraper):
 		games = self._get_games()
 		selected_game = games[int(self.play)]
 		game_info_path = Utils.find_attr(selected_game,'game_data_directory')
-
+		play_by_play_url = 'http://gd2.mlb.com' + game_info_path + '/' + 'game_events.xml'
+		
 		table_contents = []
 		header = ['INNING','BATTER_NO','DESCRIPTION','SCORE']
 		aligns = ['c','c','l','c']
-		
 		table_contents.append(header)
 
-		play_by_play_url = 'http://gd2.mlb.com' + game_info_path + '/' + 'game_events.xml'
 		html = Utils.get_content(play_by_play_url,self.PARSER)
 		all_innings = Utils.find_all_tags(html,'inning')
 
