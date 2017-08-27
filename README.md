@@ -2,6 +2,8 @@
 Access to MLB game informations on terminal.
 - author: [prs-watch](http://twitter.com/prs_watch)
 
+[![asciicast](https://asciinema.org/a/MwibFQ1wzeOaNXwyLXwcQwmCe.png)](https://asciinema.org/a/MwibFQ1wzeOaNXwyLXwcQwmCe)
+
 ## Agenda
 - [Getting Started](#getting-started)
 - [Features](#features)
