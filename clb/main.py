@@ -24,6 +24,7 @@ def main():
 	parser.add_argument('-p','--play',type=str,default='no_play')
 	parser.add_argument('-r','--roster',type=str,default='no_roster')
 	parser.add_argument('-s','--score',action='store_true')
+	parser.add_argument('--grep',type=str,default='no_grep')
 
 	# return object
 	args = parser.parse_args()
@@ -37,13 +38,13 @@ def process(args):
 	:param args: given params
 	"""
 	if args.box != 'no_box':
-		BScraper(args.day,args.box,args.play,args.score,args.roster).scrape()
+		BScraper(args.day,args.box,args.play,args.score,args.roster,args.grep).scrape()
 	elif args.play != 'no_play':
-		PScraper(args.day,args.box,args.play,args.score,args.roster).scrape()
+		PScraper(args.day,args.box,args.play,args.score,args.roster,args.grep).scrape()
 	elif args.roster != 'no_roster':
-		RScraper(args.day,args.box,args.play,args.score,args.roster).scrape()
+		RScraper(args.day,args.box,args.play,args.score,args.roster,args.grep).scrape()
 	else:
-		GScraper(args.day,args.box,args.play,args.score,args.roster).scrape()
+		GScraper(args.day,args.box,args.play,args.score,args.roster,args.grep).scrape()
 
 if __name__ == '__main__':
 	main()

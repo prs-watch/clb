@@ -54,6 +54,28 @@ class PScraper(Scraper):
 					score_plays_table.append(score_play)
 
 			Utils.draw_table(score_plays_table,score_plays_table_aligns,False)
+
+		elif self.grep != 'no_grep':
+			grep_result_table = []
+			grep_result_table_aligns = ['c','l','c']
+
+			grep_result_table.append([
+					'INNING'
+				,	'DESCRIPTION'
+				,	'SCORE'
+				])			
+
+			for table_content in table_contents:
+				grep_play = []
+
+				if self.grep in table_content[2]:
+					grep_play.append(table_content[0])
+					grep_play.append(table_content[2])
+					grep_play.append(table_content[3])
+					grep_result_table.append(grep_play)
+
+			Utils.draw_table(grep_result_table,grep_result_table_aligns,False)
+
 		else:
 			Utils.draw_table(table_contents,aligns,False)
 

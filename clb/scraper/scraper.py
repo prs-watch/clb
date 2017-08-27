@@ -12,13 +12,14 @@ class Scraper(object):
 	YMD_FORMAT = 'year_{year}/month_{month}/day_{day}'
 	PARSER = 'lxml'
 
-	def __init__(self,timestamp,box,play,score,roster):
+	def __init__(self,timestamp,box,play,score,roster,grep):
 		"""
 		init
 		:param timestamp: day
 		:param box: boxscore flag
 		:param score: score play flag
 		:param roster: roster flag
+		:param grep: grep word
 		"""
 		self.params = {
 			'year'	:	timestamp[0:4]
@@ -30,6 +31,7 @@ class Scraper(object):
 		self.play = play
 		self.score = score
 		self.roster = roster
+		self.grep = grep
 
 	def _get_games(self):
 		"""
