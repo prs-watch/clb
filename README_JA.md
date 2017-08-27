@@ -572,8 +572,8 @@ $ clb -d ${date you want to check} -r ${game_no}
 ## Options
 | OPTION | NOTE                                                                |
 | :--:   | :--                                                                 |
-| -d     | 日付を指定します。                                                  |
-| -b     | Game No you want to check boxscore.                                 |
-| -p     | Game No you want to check play-by-play.                             |
-| -s     | If you want to check scoring play only, add this option after `-p`. |
-| -r     | Game No you want to check roster.                                   |
+| -d     | 日付を指定します。デフォルトは現在日時。形式はYYYYMMDD。                                       |
+| -b     | ボックススコアを確認したい試合番号。                                 |
+| -p     | play-by-playを確認したい試合番号。                             |
+| -s     | 全得点プレーを確認したい場合、`-p`オプションの後にこのオプションを付けます。 |
+| -r     | ロースターを確認したい試合番号。                                   |
