@@ -29,33 +29,8 @@ class PScraper(Scraper):
 			top_atbats = Utils.find_all_tags(top,'atbat')
 			bottom_atbats = Utils.find_all_tags(bottom,'atbat')
 
-			for top_atbat in top_atbats:
-				result = []
-
-				away_team_runs = Utils.find_attr(top_atbat,'away_team_runs')
-				home_team_runs = Utils.find_attr(top_atbat,'home_team_runs')
-				score = away_team_runs + '-' + home_team_runs
-
-				result.append(inning_no)
-				result.append(Utils.find_attr(top_atbat,'num'))
-				result.append(Utils.find_attr(top_atbat,'des'))
-				result.append(score)
-
-				inning.append(result)
-
-			for bottom_atbat in bottom_atbats:
-				result = []
-				
-				away_team_runs = Utils.find_attr(bottom_atbat,'away_team_runs')
-				home_team_runs = Utils.find_attr(bottom_atbat,'home_team_runs')
-				score = away_team_runs + '-' + home_team_runs
-
-				result.append(inning_no)
-				result.append(Utils.find_attr(bottom_atbat,'num'))
-				result.append(Utils.find_attr(bottom_atbat,'des'))
-				result.append(score)
-
-				inning.append(result)
+			self._push_resuls(top_atbats,inning)
+			self._push_resuls(bottom_atbats,inning)
 
 			table_contents.extend(inning)
 
@@ -81,3 +56,23 @@ class PScraper(Scraper):
 			Utils.draw_table(score_plays_table,score_plays_table_aligns,False)
 		else:
 			Utils.draw_table(table_contents,aligns,False)
+
+	def _push_resuls(self,atbats,inning):
+		"""
+		make atbat result array
+		:param atbats: at bat results
+		:inning atbats: inning array
+		"""
+		for atbat in atbats:
+			result = []
+				
+			away_team_runs = Utils.find_attr(atbat,'away_team_runs')
+			home_team_runs = Utils.find_attr(atbat,'home_team_runs')
+			score = away_team_runs + '-' + home_team_runs
+
+			result.append(inning_no)
+			result.append(Utils.find_attr(atbat,'num'))
+			result.append(Utils.find_attr(atbat,'des'))
+			result.append(score)
+
+			inning.append(result)
