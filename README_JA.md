@@ -2,6 +2,8 @@
 ターミナル上からMLB試合情報にアクセス出来るツールです。
 - 作成者: [prs-watch](http://twitter.com/prs_watch)
 
+[![asciicast](https://asciinema.org/a/MwibFQ1wzeOaNXwyLXwcQwmCe.png)](https://asciinema.org/a/MwibFQ1wzeOaNXwyLXwcQwmCe)
+
 ## Agenda
 - [Getting Started](#getting-started)
 - [Features](#features)
