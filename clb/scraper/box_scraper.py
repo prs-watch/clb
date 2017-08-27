@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import sys
-import texttable as ttb
 from clb.scraper.scraper import Scraper
 from clb.utils import Utils
 
