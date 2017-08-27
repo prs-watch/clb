@@ -8,6 +8,7 @@ setup(
     version='0.0.1',
     description='Access to MLB game informations on terminal',
     author='prs-watch',
+    author_email='prs_watch@excite.co.jp',
     url='https://github.com/prs-watch/CLB',
     packages=find_packages(),
     license='MIT License',
@@ -17,7 +18,6 @@ setup(
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 3::only',
         'Programming Language :: Python :: 3.5',
     ],
     entry_points="""

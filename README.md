@@ -579,3 +579,6 @@ $ clb -d ${date you want to check} -r ${game_no}
 | -p     | Game No you want to check play-by-play.                             |
 | -s     | If you want to check scoring play only, add this option after `-p`. |
 | -r     | Game No you want to check roster.                                   |
+
+## LICENSE
+- MIT License
