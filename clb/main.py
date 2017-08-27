@@ -16,7 +16,7 @@ def main():
 	"""
 
 	# init parser
-	parser = argparse.ArgumentParser(description="pitchfx commandline tool")
+	parser = argparse.ArgumentParser(description="commandline baseball")
 
 	# set variable
 	parser.add_argument('-b','--box',type=str,default='no_box')
