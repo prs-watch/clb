@@ -1,6 +1,6 @@
 # CLB -CommandLine Baseball
-Access to MLB game informations on terminal.
-- author: [prs-watch](http://twitter.com/prs_watch)
+ターミナル上からMLB試合情報にアクセス出来るツールです。
+- 作成者: [prs-watch](http://twitter.com/prs_watch)
 
 ## Agenda
 - [Getting Started](#getting-started)
@@ -525,18 +525,18 @@ $ clb -d 20170815 -p 0 -s
 ```
 
 ## Features
-- Access to MLB game informations on terminal.
-- Quick way to check MLB game informations.
-- Easy tool to use.
+- ターミナル上からMLB試合情報を確認可。
+- リッチなWeb画面のレンダリング等を介さないため、高速で試合情報にアクセス可。
+- 簡単なコマンドラインで実行可。
 
 ## Requirement
-To install CLB, you have to install Python 3.5.2+.  
-(Sorry, I don't know whether this works well under version < 3.5.2)
+Python 3.5.2+のインストールが必要です。
+(バージョンが3.5.2以下の環境下での挙動は未検証です。ごめんなさい。)
 
 ## Installation
-- This section is under construction as this project has not deployed PypI yet.
+- PyPIへのデプロイを未実施なため、現在編集中です。
 
-For developers.
+開発者は以下のコマンドで環境セットアップを行なって下さい。
 ```
 $ git clone https://github.com/prs-watch/CLB.git
 $ cd ${clone dir}
@@ -544,27 +544,27 @@ $ python setup.py develop
 ```
 
 ## Usage
-#### Check all games on specific date
+#### 指定日の全試合リストを表示する
 ```bash
 $ clb -d ${date you want to check}
 ```
 
-#### Check boxscore on specific game
+#### 指定試合のボックススコアを表示する
 ```bash
 $ clb -d ${date you want to check} -b ${game_no}
 ```
 
-#### Check play-by-play on specific game
+#### 指定試合のplay-by-playを表示する
 ```bash
 $ clb -d ${date you want to check} -p ${game_no}
 ```
 
-#### Check scoring-play on specific game
+#### 指定試合の全得点プレーを表示する
 ```bash
 $ clb -d ${date you want to check} -p ${game_no} -s
 ```
 
-#### Check roster on specific game
+#### 指定試合のロースターを表示する
 ```bash
 $ clb -d ${date you want to check} -r ${game_no}
 ```
@@ -572,8 +572,8 @@ $ clb -d ${date you want to check} -r ${game_no}
 ## Options
 | OPTION | NOTE                                                                |
 | :--:   | :--                                                                 |
-| -d     | Date you want to check. (YYYYMMDD)                                  |
-| -b     | Game No you want to check boxscore.                                 |
-| -p     | Game No you want to check play-by-play.                             |
-| -s     | If you want to check scoring play only, add this option after `-p`. |
-| -r     | Game No you want to check roster.                                   |
+| -d     | 日付を指定します。デフォルトは現在日時。形式はYYYYMMDD。                                       |
+| -b     | ボックススコアを確認したい試合番号。                                 |
+| -p     | play-by-playを確認したい試合番号。                             |
+| -s     | 全得点プレーを確認したい場合、`-p`オプションの後にこのオプションを付けます。 |
+| -r     | ロースターを確認したい試合番号。                                   |
