@@ -526,7 +526,7 @@ $ clb -d 20170815 -p 0 -s
 
 ## Features
 - Access to MLB game informations on terminal.
-- Fastest way to check MLB game informations.
+- Quick way to check MLB game informations.
 - Easy tool to use.
 
 ## Requirement
