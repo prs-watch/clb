@@ -4,6 +4,8 @@
 from clb.scraper.scraper import Scraper
 from clb.utils import Utils
 
+__author__ = "prs-watch"
+
 # scraper class
 class PScraper(Scraper):
 	def scrape(self):
