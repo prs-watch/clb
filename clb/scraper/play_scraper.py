@@ -31,8 +31,8 @@ class PScraper(Scraper):
 			top_atbats = Utils.find_all_tags(top,'atbat')
 			bottom_atbats = Utils.find_all_tags(bottom,'atbat')
 
-			self._push_resuls(top_atbats,inning,inning_no)
-			self._push_resuls(bottom_atbats,inning,inning_no)
+			self._get_results(top_atbats,inning,inning_no)
+			self._get_results(bottom_atbats,inning,inning_no)
 
 			table_contents.extend(inning)
 
@@ -81,9 +81,9 @@ class PScraper(Scraper):
 		else:
 			Utils.draw_table(table_contents,aligns,False)
 
-	def _push_resuls(self,atbats,inning,inning_no):
+	def _get_results(self,atbats,inning,inning_no):
 		"""
-		make atbat result array
+		get atbat result array
 		:param atbats: at bat results
 		:inning atbats: inning array
 		:param inning_no: inning no
