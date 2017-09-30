@@ -1,4 +1,4 @@
-# CLB -CommandLine Baseball
+# commandline-baseball: Check MLB.com Game Info on Your Terminal.
 Access to MLB game informations on terminal.
 - author: [prs-watch](http://twitter.com/prs_watch)
 
