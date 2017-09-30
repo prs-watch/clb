@@ -536,13 +536,8 @@ To install CLB, you have to install Python 3.5.2+.
 (Sorry, I don't know whether this works well under version < 3.5.2)
 
 ## Installation
-- This section is under construction as this project has not deployed PypI yet.
-
-For developers.
 ```
-$ git clone https://github.com/prs-watch/CLB.git
-$ cd ${clone dir}
-$ python setup.py develop
+$ pip install commandline-baseball
 ```
 
 ## Usage
