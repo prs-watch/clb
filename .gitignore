@@ -12,3 +12,10 @@ clb.egg-info/SOURCES.txt
 clb.egg-info/top_level.txt
 dist/clb-0.0.1-py3-none-any.whl
 dist/clb-0.0.1.tar.gz
+build/lib/clb/main.py
+build/lib/clb/scraper/box_scraper.py
+build/lib/clb/scraper/game_scraper.py
+build/lib/clb/scraper/play_scraper.py
+build/lib/clb/scraper/roster_scraper.py
+build/lib/clb/scraper/scraper.py
+build/lib/clb/utils.py
