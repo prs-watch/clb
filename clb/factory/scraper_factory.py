@@ -6,7 +6,7 @@ from clb.scraper.box_scraper import BScraper
 from clb.scraper.play_scraper import PScraper
 from clb.scraper.roster_scraper import RScraper
 
-__autho__ = 'prs_watch'
+__author__ = 'prs_watch'
 
 class ScraperFactory(object):
 
