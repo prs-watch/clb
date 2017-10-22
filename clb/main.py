@@ -3,10 +3,7 @@
 
 import argparse
 from datetime import datetime
-from clb.scraper.game_scraper import GScraper
-from clb.scraper.box_scraper import BScraper
-from clb.scraper.play_scraper import PScraper
-from clb.scraper.roster_scraper import RScraper
+from clb.factory.scraper_factory import ScraperFactory
 
 __author__ = 'prs_watch'
 
@@ -30,21 +27,8 @@ def main():
 	args = parser.parse_args()
 
 	# execute process
-	process(args)
-
-def process(args):
-	"""
-	execute scraping
-	:param args: given params
-	"""
-	if args.box != 'no_box':
-		BScraper(args.day,args.box,args.play,args.score,args.roster,args.grep).scrape()
-	elif args.play != 'no_play':
-		PScraper(args.day,args.box,args.play,args.score,args.roster,args.grep).scrape()
-	elif args.roster != 'no_roster':
-		RScraper(args.day,args.box,args.play,args.score,args.roster,args.grep).scrape()
-	else:
-		GScraper(args.day,args.box,args.play,args.score,args.roster,args.grep).scrape()
+	scraper = ScraperFactory(args).create_scraper()
+	scraper.scrape()
 
 if __name__ == '__main__':
 	main()

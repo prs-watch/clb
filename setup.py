@@ -5,12 +5,12 @@ from setuptools import setup, find_packages
 
 setup(
     name='commandline-baseball',
-    version='1.0.0',
+    version='1.0.1',
     description='Access to MLB game informations on terminal',
     author='prs-watch',
     author_email='prs_watch@excite.co.jp',
     url='https://github.com/prs-watch/commandline-baseball',
-    packages=['clb','clb.scraper'],
+    packages=['clb','clb.scraper','clb.factory'],
     license='MIT License',
     include_package_data=True,
     install_requires=open('requirements.txt').read().splitlines(),
