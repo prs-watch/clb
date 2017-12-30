@@ -23,14 +23,14 @@ class ScraperFactory(object):
 		:return scraper: scraper class.
 		"""
 		if self.args.box != 'no_box':
-			# print boxscore.
+			# boxscore scraper.
 			return BScraper(self.args.day,self.args.box,self.args.play,self.args.score,self.args.roster,self.args.grep)
 		elif self.args.play != 'no_play':
-			# print play-by-play.
+			# play-by-play scraper.
 			return PScraper(self.args.day,self.args.box,self.args.play,self.args.score,self.args.roster,self.args.grep)
 		elif self.args.roster != 'no_roster':
-			# print roster.
+			# roster scraper.
 			return RScraper(self.args.day,self.args.box,self.args.play,self.args.score,self.args.roster,self.args.grep)
 		else:
-			# print game list.
+			# game list scraper.
 			return GScraper(self.args.day,self.args.box,self.args.play,self.args.score,self.args.roster,self.args.grep)
